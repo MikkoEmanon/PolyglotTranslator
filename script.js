@@ -137,10 +137,10 @@ translateBtn.addEventListener("click", async () => {
       listenBtn.addEventListener("click", () => {
         const utterance = new SpeechSynthesisUtterance(translation);
         utterance.lang = langCode;
-        utterance.rate = 0.9; // Slightly slower for clarity
+        utterance.rate = 0.9;
         utterance.pitch = 1;
         utterance.volume = 1;
-        speechSynthesis.cancel(); // Cancel any ongoing speech
+        speechSynthesis.cancel();
         speechSynthesis.speak(utterance);
       });
     }
@@ -165,7 +165,7 @@ listenInputBtn.addEventListener("click", () => {
       return;
     }
     
-    utterance.lang = langCode || "en"; // Fallback to English if no lang
+    utterance.lang = langCode || "en";
     utterance.rate = 0.9;
     utterance.pitch = 1;
     utterance.volume = 1;
@@ -188,7 +188,6 @@ if ('speechSynthesis' in window) {
   console.log("Web Speech API supported");
 } else {
   console.warn("Web Speech API not supported in this browser");
-  // Optionally, show a user-friendly message
   const note = document.createElement("p");
   note.textContent = "Note: Text-to-speech is not supported in your browser. Please use a modern browser like Chrome or Edge.";
   note.style.cssText = "color: #ffcc33; font-style: italic; text-align: center; margin-top: 10px;";
