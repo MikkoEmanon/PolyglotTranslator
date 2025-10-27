@@ -1,30 +1,30 @@
 const languageList = [
-  { code: "en", name: "English", flag: "🇬🇧" },
-  { code: "es", name: "Spanish", flag: "🇪🇸" },
-  { code: "it", name: "Italian", flag: "🇮🇹" },
-  { code: "fr", name: "French", flag: "🇫🇷" },
-  { code: "pt", name: "Portuguese", flag: "🇵🇹" },
-  { code: "el", name: "Greek", flag: "🇬🇷" },
-  { code: "de", name: "German", flag: "🇩🇪" },
-  { code: "nl", name: "Dutch", flag: "🇳🇱" },
-  { code: "no", name: "Norwegian", flag: "🇳🇴" },
-  { code: "ro", name: "Romanian", flag: "🇷🇴" },
-  { code: "ru", name: "Russian", flag: "🇷🇺" },
-  { code: "tr", name: "Turkish", flag: "🇹🇷" },
-  { code: "fi", name: "Finnish", flag: "🇫🇮" },
-  { code: "hu", name: "Hungarian", flag: "🇭🇺" },
-  { code: "he", name: "Hebrew", flag: "🇮🇱" },
-  { code: "fa", name: "Farsi", flag: "🇮🇷" },
-  { code: "mn", name: "Mongolian", flag: "🇲🇳" },
-  { code: "zh", name: "Chinese", flag: "🇨🇳" },
-  { code: "ar", name: "Arabic", flag: "🇸🇦" },
-  { code: "hi", name: "Hindi", flag: "🇮🇳" },
-  { code: "sr", name: "Serbian", flag: "🇷🇸" },
-  { code: "hy", name: "Armenian", flag: "🇦🇲" },
-  { code: "lt", name: "Lithuanian", flag: "🇱🇹" },
-  { code: "sq", name: "Albanian", flag: "🇦🇱" },
-  { code: "id", name: "Indonesian", flag: "🇮🇩" },
-  { code: "km", name: "Khmer", flag: "🇰🇭" },
+  { code: "en", name: "English", flag: "🇬🇧", hasTTS: true },
+  { code: "es", name: "Spanish", flag: "🇪🇸", hasTTS: true },
+  { code: "it", name: "Italian", flag: "🇮🇹", hasTTS: true },
+  { code: "fr", name: "French", flag: "🇫🇷", hasTTS: true },
+  { code: "pt", name: "Portuguese", flag: "🇵🇹", hasTTS: true },
+  { code: "el", name: "Greek", flag: "🇬🇷", hasTTS: true },
+  { code: "de", name: "German", flag: "🇩🇪", hasTTS: true },
+  { code: "nl", name: "Dutch", flag: "🇳🇱", hasTTS: true },
+  { code: "no", name: "Norwegian", flag: "🇳🇴", hasTTS: false },
+  { code: "ro", name: "Romanian", flag: "🇷🇴", hasTTS: true },
+  { code: "ru", name: "Russian", flag: "🇷🇺", hasTTS: true },
+  { code: "tr", name: "Turkish", flag: "🇹🇷", hasTTS: true },
+  { code: "fi", name: "Finnish", flag: "🇫🇮", hasTTS: true },
+  { code: "hu", name: "Hungarian", flag: "🇭🇺", hasTTS: true },
+  { code: "he", name: "Hebrew", flag: "🇮🇱", hasTTS: true },
+  { code: "fa", name: "Farsi", flag: "🇮🇷", hasTTS: false },
+  { code: "mn", name: "Mongolian", flag: "🇲🇳", hasTTS: false },
+  { code: "zh", name: "Chinese", flag: "🇨🇳", hasTTS: true },
+  { code: "ar", name: "Arabic", flag: "🇸🇦", hasTTS: true },
+  { code: "hi", name: "Hindi", flag: "🇮🇳", hasTTS: true },
+  { code: "sr", name: "Serbian", flag: "🇷🇸", hasTTS: false },
+  { code: "hy", name: "Armenian", flag: "🇦🇲", hasTTS: false },
+  { code: "lt", name: "Lithuanian", flag: "🇱🇹", hasTTS: false },
+  { code: "sq", name: "Albanian", flag: "🇦🇱", hasTTS: false },
+  { code: "id", name: "Indonesian", flag: "🇮🇩", hasTTS: true },
+  { code: "km", name: "Khmer", flag: "🇰🇭", hasTTS: false },
 ];
 
 const inputLanguageSelect = document.getElementById("inputLanguage");
@@ -111,6 +111,9 @@ translateBtn.addEventListener("click", async () => {
     const box = document.createElement("div");
     box.classList.add("translation-box");
 
+    // Only show listen button for languages that support TTS
+    const showListenButton = lang.hasTTS;
+
     box.innerHTML = `
       <div class="translation-header">
         <h3>${lang.flag} ${lang.name}</h3>
@@ -118,28 +121,29 @@ translateBtn.addEventListener("click", async () => {
       <div class="translation-text">${translation}</div>
       <div class="translation-actions">
         <button class="language-btn copyBtn">Copy</button>
-        <button class="language-btn listenBtn">Listen 🔊</button>
+        ${showListenButton ? '<button class="language-btn listenBtn">Listen 🔊</button>' : ''}
       </div>
     `;
 
     const copyBtn = box.querySelector(".copyBtn");
-    const listenBtn = box.querySelector(".listenBtn");
-
     copyBtn.addEventListener("click", () => {
       navigator.clipboard.writeText(translation);
       copyBtn.textContent = "Copied!";
       setTimeout(() => (copyBtn.textContent = "Copy"), 1000);
     });
 
-    listenBtn.addEventListener("click", () => {
-      const utterance = new SpeechSynthesisUtterance(translation);
-      utterance.lang = langCode;
-      utterance.rate = 0.9; // Slightly slower for clarity
-      utterance.pitch = 1;
-      utterance.volume = 1;
-      speechSynthesis.cancel(); // Cancel any ongoing speech
-      speechSynthesis.speak(utterance);
-    });
+    if (showListenButton) {
+      const listenBtn = box.querySelector(".listenBtn");
+      listenBtn.addEventListener("click", () => {
+        const utterance = new SpeechSynthesisUtterance(translation);
+        utterance.lang = langCode;
+        utterance.rate = 0.9; // Slightly slower for clarity
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        speechSynthesis.cancel(); // Cancel any ongoing speech
+        speechSynthesis.speak(utterance);
+      });
+    }
 
     resultsSection.appendChild(box);
   }
@@ -153,6 +157,14 @@ listenInputBtn.addEventListener("click", () => {
   if (text) {
     const utterance = new SpeechSynthesisUtterance(text);
     const langCode = inputLanguageSelect.value;
+    const lang = languageList.find(l => l.code === langCode);
+    
+    // Only allow listening for input languages that support TTS
+    if (lang && !lang.hasTTS) {
+      alert("Text-to-speech is not available for this language. Please select a different input language.");
+      return;
+    }
+    
     utterance.lang = langCode || "en"; // Fallback to English if no lang
     utterance.rate = 0.9;
     utterance.pitch = 1;
