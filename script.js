@@ -36,13 +36,11 @@ const clearAllBtn = document.getElementById("clearAll");
 const inputText = document.getElementById("textInput");
 
 languageList.forEach(lang => {
-  // Populate input dropdown
   const opt = document.createElement("option");
   opt.value = lang.code;
   opt.textContent = `${lang.flag} ${lang.name}`;
   inputLanguageSelect.appendChild(opt);
 
-  // Create output buttons
   const btn = document.createElement("button");
   btn.classList.add("language-btn");
   btn.textContent = `${lang.flag} ${lang.name}`;
@@ -52,7 +50,7 @@ languageList.forEach(lang => {
 });
 
 async function fetchTranslation(text, from, to) {
-  // First, try MyMemory API
+  // MyMemory API
   try {
     const res = await fetch(
       `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${from}|${to}`
@@ -69,7 +67,7 @@ async function fetchTranslation(text, from, to) {
     console.warn("MyMemory failed, falling back to Lingva:", error.message);
   }
 
-  // Fallback to Lingva Translate API
+  // Fallback to Lingva Translate API lol
   try {
     const params = new URLSearchParams({
       text: text,
@@ -111,7 +109,7 @@ translateBtn.addEventListener("click", async () => {
     const box = document.createElement("div");
     box.classList.add("translation-box");
 
-    // Only show listen button for languages that support TTS
+    // audio button only for languages that support TTS
     const showListenButton = lang.hasTTS;
 
     box.innerHTML = `
@@ -159,7 +157,6 @@ listenInputBtn.addEventListener("click", () => {
     const langCode = inputLanguageSelect.value;
     const lang = languageList.find(l => l.code === langCode);
     
-    // Only allow listening for input languages that support TTS
     if (lang && !lang.hasTTS) {
       alert("Text-to-speech is not available for this language. Please select a different input language.");
       return;
