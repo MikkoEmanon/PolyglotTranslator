@@ -1,49 +1,50 @@
 const languageList = [
-  { code: "sq", name: "Albanian", flag: "🇦🇱", ttsCode: "sq-AL", hasTTS: false },
-  { code: "ar", name: "Arabic", flag: "🇸🇦", ttsCode: "ar-SA", hasTTS: true },
-  { code: "hy", name: "Armenian", flag: "🇦🇲", ttsCode: "hy-AM", hasTTS: false },
-  { code: "yue", name: "Cantonese", flag: "🇭🇰", ttsCode: "zh-HK", hasTTS: true },
-  { code: "zh", name: "Chinese", flag: "🇨🇳", ttsCode: "zh-CN", hasTTS: true },
-  { code: "cs", name: "Czech", flag: "🇨🇿", ttsCode: "cs-CZ", hasTTS: true },
-  { code: "nl", name: "Dutch", flag: "🇳🇱", ttsCode: "nl-NL", hasTTS: true },
-  { code: "en", name: "English", flag: "🇬🇧", ttsCode: "en-US", hasTTS: true },
-  { code: "fa", name: "Farsi", flag: "🇮🇷", ttsCode: "fa-IR", hasTTS: false },
-  { code: "fi", name: "Finnish", flag: "🇫🇮", ttsCode: "fi-FI", hasTTS: true },
-  { code: "fr", name: "French", flag: "🇫🇷", ttsCode: "fr-FR", hasTTS: true },
-  { code: "de", name: "German", flag: "🇩🇪", ttsCode: "de-DE", hasTTS: true },
-  { code: "el", name: "Greek", flag: "🇬🇷", ttsCode: "el-GR", hasTTS: true },
-  { code: "he", name: "Hebrew", flag: "🇮🇱", ttsCode: "he-IL", hasTTS: true },
-  { code: "hi", name: "Hindi", flag: "🇮🇳", ttsCode: "hi-IN", hasTTS: true },
-  { code: "hu", name: "Hungarian", flag: "🇭🇺", ttsCode: "hu-HU", hasTTS: true },
-  { code: "is", name: "Icelandic", flag: "🇮🇸", ttsCode: "is-IS", hasTTS: false },
-  { code: "id", name: "Indonesian", flag: "🇮🇩", ttsCode: "id-ID", hasTTS: true },
-  { code: "ga", name: "Irish", flag: "🇮🇪", ttsCode: "ga-IE", hasTTS: false },
-  { code: "it", name: "Italian", flag: "🇮🇹", ttsCode: "it-IT", hasTTS: true },
-  { code: "ja", name: "Japanese", flag: "🇯🇵", ttsCode: "ja-JP", hasTTS: true },
-  { code: "km", name: "Khmer", flag: "🇰🇭", ttsCode: "km-KH", hasTTS: false },
-  { code: "ko", name: "Korean", flag: "🇰🇷", ttsCode: "ko-KR", hasTTS: true },
+  { code: "sq", name: "Albanian",   flag: "🇦🇱", ttsCode: "sq-AL", hasTTS: false },
+  { code: "ar", name: "Arabic",     flag: "🇸🇦", ttsCode: "ar-SA", hasTTS: true  },
+  { code: "hy", name: "Armenian",   flag: "🇦🇲", ttsCode: "hy-AM", hasTTS: false },
+  { code: "yue",name: "Cantonese",  flag: "🇭🇰", ttsCode: "zh-HK", hasTTS: true  },
+  { code: "zh", name: "Chinese",    flag: "🇨🇳", ttsCode: "zh-CN", hasTTS: true  },
+  { code: "cs", name: "Czech",      flag: "🇨🇿", ttsCode: "cs-CZ", hasTTS: true  },
+  { code: "nl", name: "Dutch",      flag: "🇳🇱", ttsCode: "nl-NL", hasTTS: true  },
+  { code: "en", name: "English",    flag: "🇬🇧", ttsCode: "en-US", hasTTS: true  },
+  { code: "fa", name: "Farsi",      flag: "🇮🇷", ttsCode: "fa-IR", hasTTS: false },
+  { code: "fi", name: "Finnish",    flag: "🇫🇮", ttsCode: "fi-FI", hasTTS: true  },
+  { code: "fr", name: "French",     flag: "🇫🇷", ttsCode: "fr-FR", hasTTS: true  },
+  { code: "de", name: "German",     flag: "🇩🇪", ttsCode: "de-DE", hasTTS: true  },
+  { code: "el", name: "Greek",      flag: "🇬🇷", ttsCode: "el-GR", hasTTS: true  },
+  { code: "he", name: "Hebrew",     flag: "🇮🇱", ttsCode: "he-IL", hasTTS: true  },
+  { code: "hi", name: "Hindi",      flag: "🇮🇳", ttsCode: "hi-IN", hasTTS: true  },
+  { code: "hu", name: "Hungarian",  flag: "🇭🇺", ttsCode: "hu-HU", hasTTS: true  },
+  { code: "is", name: "Icelandic",  flag: "🇮🇸", ttsCode: "is-IS", hasTTS: false },
+  { code: "id", name: "Indonesian", flag: "🇮🇩", ttsCode: "id-ID", hasTTS: true  },
+  { code: "ga", name: "Irish",      flag: "🇮🇪", ttsCode: "ga-IE", hasTTS: false },
+  { code: "it", name: "Italian",    flag: "🇮🇹", ttsCode: "it-IT", hasTTS: true  },
+  { code: "ja", name: "Japanese",   flag: "🇯🇵", ttsCode: "ja-JP", hasTTS: true  },
+  { code: "km", name: "Khmer",      flag: "🇰🇭", ttsCode: "km-KH", hasTTS: false },
+  { code: "ko", name: "Korean",     flag: "🇰🇷", ttsCode: "ko-KR", hasTTS: true  },
+  { code: "ky", name: "Kyrgyz",     flag: "🇰🇬", ttsCode: "ky-KG", hasTTS: false },
   { code: "lt", name: "Lithuanian", flag: "🇱🇹", ttsCode: "lt-LT", hasTTS: false },
-  { code: "mn", name: "Mongolian", flag: "🇲🇳", ttsCode: "mn-MN", hasTTS: false },
-  { code: "no", name: "Norwegian", flag: "🇳🇴", ttsCode: "nb-NO", hasTTS: true },
-  { code: "pl", name: "Polish", flag: "🇵🇱", ttsCode: "pl-PL", hasTTS: true },
-  { code: "pt", name: "Portuguese", flag: "🇵🇹", ttsCode: "pt-PT", hasTTS: true },
-  { code: "ro", name: "Romanian", flag: "🇷🇴", ttsCode: "ro-RO", hasTTS: true },
-  { code: "ru", name: "Russian", flag: "🇷🇺", ttsCode: "ru-RU", hasTTS: true },
-  { code: "sr", name: "Serbian", flag: "🇷🇸", ttsCode: "sr-RS", hasTTS: false },
-  { code: "es", name: "Spanish", flag: "🇪🇸", ttsCode: "es-ES", hasTTS: true },
-  { code: "sv", name: "Swedish", flag: "🇸🇪", ttsCode: "sv-SE", hasTTS: true },
-  { code: "tr", name: "Turkish", flag: "🇹🇷", ttsCode: "tr-TR", hasTTS: true },
+  { code: "mn", name: "Mongolian",  flag: "🇲🇳", ttsCode: "mn-MN", hasTTS: false },
+  { code: "no", name: "Norwegian",  flag: "🇳🇴", ttsCode: "nb-NO", hasTTS: true  },
+  { code: "pl", name: "Polish",     flag: "🇵🇱", ttsCode: "pl-PL", hasTTS: true  },
+  { code: "pt", name: "Portuguese", flag: "🇵🇹", ttsCode: "pt-PT", hasTTS: true  },
+  { code: "ro", name: "Romanian",   flag: "🇷🇴", ttsCode: "ro-RO", hasTTS: true  },
+  { code: "ru", name: "Russian",    flag: "🇷🇺", ttsCode: "ru-RU", hasTTS: true  },
+  { code: "sr", name: "Serbian",    flag: "🇷🇸", ttsCode: "sr-RS", hasTTS: false },
+  { code: "es", name: "Spanish",    flag: "🇪🇸", ttsCode: "es-ES", hasTTS: true  },
+  { code: "sv", name: "Swedish",    flag: "🇸🇪", ttsCode: "sv-SE", hasTTS: true  },
+  { code: "tr", name: "Turkish",    flag: "🇹🇷", ttsCode: "tr-TR", hasTTS: true  },
   { code: "vi", name: "Vietnamese", flag: "🇻🇳", ttsCode: "vi-VN", hasTTS: false }
 ];
 
 const inputLanguageSelect = document.getElementById("inputLanguage");
-const outputLanguagesDiv = document.getElementById("outputLanguages");
-const resultsSection = document.getElementById("results");
-const translateBtn = document.getElementById("translateBtn");
-const listenInputBtn = document.getElementById("listenInput");
-const clearAllBtn = document.getElementById("clearAll");
-const inputText = document.getElementById("textInput");
-const charCountEl = document.getElementById("charCount");
+const outputLanguagesDiv  = document.getElementById("outputLanguages");
+const resultsSection      = document.getElementById("results");
+const translateBtn        = document.getElementById("translateBtn");
+const listenInputBtn      = document.getElementById("listenInput");
+const clearAllBtn         = document.getElementById("clearAll");
+const inputText           = document.getElementById("textInput");
+const charCountEl         = document.getElementById("charCount");
 
 languageList.forEach(lang => {
   const opt = document.createElement("option");
@@ -63,7 +64,8 @@ languageList.forEach(lang => {
   outputLanguagesDiv.appendChild(btn);
 });
 
-inputLanguageSelect.value = "en";
+const defaultLang = languageList.find(l => l.code === "en") ? "en" : languageList[0]?.code ?? "";
+inputLanguageSelect.value = defaultLang;
 
 function updateOutputButtons() {
   const currentFrom = inputLanguageSelect.value;
@@ -138,37 +140,48 @@ translateBtn.addEventListener("click", async () => {
     const box = document.createElement("div");
     box.classList.add("translation-box");
 
-    box.innerHTML = `
-      <div class="translation-header">
-        <h3>${lang.flag} ${lang.name}</h3>
-      </div>
-      <div class="translation-text">${translation}</div>
-      <div class="translation-actions">
-        <button class="language-btn copyBtn">Copy</button>
-        ${lang.hasTTS ? '<button class="language-btn listenBtn">Listen 🔊</button>' : ''}
-      </div>
-    `;
+    const header = document.createElement("div");
+    header.classList.add("translation-header");
+    const heading = document.createElement("h3");
+    heading.textContent = `${lang.flag} ${lang.name}`;
+    header.appendChild(heading);
+    box.appendChild(header);
 
-    const copyBtn = box.querySelector(".copyBtn");
+    const translationText = document.createElement("div");
+    translationText.classList.add("translation-text");
+    translationText.textContent = translation;
+    box.appendChild(translationText);
+
+    const actions = document.createElement("div");
+    actions.classList.add("translation-actions");
+
+    const copyBtn = document.createElement("button");
+    copyBtn.classList.add("language-btn", "copyBtn");
+    copyBtn.textContent = "Copy";
     copyBtn.addEventListener("click", () => {
       navigator.clipboard.writeText(translation);
       copyBtn.textContent = "Copied!";
       setTimeout(() => copyBtn.textContent = "Copy", 1000);
     });
+    actions.appendChild(copyBtn);
 
     if (lang.hasTTS) {
-      const listenBtn = box.querySelector(".listenBtn");
+      const listenBtn = document.createElement("button");
+      listenBtn.classList.add("language-btn", "listenBtn");
+      listenBtn.textContent = "Listen 🔊";
       listenBtn.addEventListener("click", () => {
         const utterance = new SpeechSynthesisUtterance(translation);
-        utterance.lang = lang.ttsCode;
-        utterance.rate = 0.9;
-        utterance.pitch = 1;
+        utterance.lang   = lang.ttsCode;
+        utterance.rate   = 0.9;
+        utterance.pitch  = 1;
         utterance.volume = 1;
         speechSynthesis.cancel();
         speechSynthesis.speak(utterance);
       });
+      actions.appendChild(listenBtn);
     }
 
+    box.appendChild(actions);
     resultsSection.appendChild(box);
   }
 
@@ -189,9 +202,9 @@ listenInputBtn.addEventListener("click", () => {
   }
 
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = lang ? lang.ttsCode : "en-US";
-  utterance.rate = 0.9;
-  utterance.pitch = 1;
+  utterance.lang   = lang ? lang.ttsCode : "en-US";
+  utterance.rate   = 0.9;
+  utterance.pitch  = 1;
   utterance.volume = 1;
   speechSynthesis.cancel();
   speechSynthesis.speak(utterance);
