@@ -149,3 +149,11 @@ footer a:hover {
   color: #ffffff;
   text-decoration: underline;
 }
+
+.char-count {
+  text-align: right;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 5px;
+  color: #fff;
+}
