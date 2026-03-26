@@ -33,8 +33,7 @@ const languageList = [
   { code: "es", name: "Spanish", flag: "🇪🇸", ttsCode: "es-ES", hasTTS: true },
   { code: "sv", name: "Swedish", flag: "🇸🇪", ttsCode: "sv-SE", hasTTS: true },
   { code: "tr", name: "Turkish", flag: "🇹🇷", ttsCode: "tr-TR", hasTTS: true },
-  { code: "vi", name: "Vietnamese", flag: "🇻🇳", ttsCode: "vi-VN", hasTTS: false },
-  { code: "cy", name: "Welsh", flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿", ttsCode: "cy-GB", hasTTS: false }
+  { code: "vi", name: "Vietnamese", flag: "🇻🇳", ttsCode: "vi-VN", hasTTS: false }
 ];
 
 const inputLanguageSelect = document.getElementById("inputLanguage");
