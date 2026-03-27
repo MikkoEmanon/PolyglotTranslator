@@ -157,3 +157,76 @@ footer a:hover {
   margin-top: 5px;
   color: #fff;
 }
+
+.quick-groups {
+  margin: 18px 0 12px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  min-height: 42px;
+}
+
+.group-label {
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.group-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+}
+
+.group-btn {
+  background: rgba(255, 255, 255, 0.18);
+  border: none;
+  color: white;
+  padding: 7px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.group-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+
+.group-btn.selected {
+  background: #ffcc33;
+  color: #3b0066;
+  font-weight: 600;
+}
+
+.group-btn input[type="radio"] {
+  margin: 0;
+  accent-color: #3b0066;
+}
+
+#saveFavourites {
+  background: rgba(255, 204, 51, 0.25);
+  color: #ffcc33;
+}
+
+#saveFavourites:hover {
+  background: rgba(255, 204, 51, 0.4);
+}
+
+#clearFavourites {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffcccc;
+}
+
+#clearFavourites:hover {
+  background: rgba(255, 80, 80, 0.3);
+  color: white;
+}
